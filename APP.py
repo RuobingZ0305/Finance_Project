@@ -13,7 +13,7 @@ Original file is located at
 
 import joblib
 import numpy as np
-import ipywidgets as widgets
+#import ipywidgets as widgets
 from IPython.display import display, clear_output
 import pandas as pd
 import gradio as gr
@@ -60,12 +60,12 @@ def preprocess_input(ohlc_list):
 
 model = joblib.load('xgboost_best.pkl')
 
-paste_box = widgets.Textarea(
-    value='',
-    placeholder='Paste 32 values copied from Excel (separated by space, comma, or tab)',
-    description='Paste',
-    layout=widgets.Layout(width='750px', height='80px')
-)
+# paste_box = widgets.Textarea(
+#     value='',
+#     placeholder='Paste 32 values copied from Excel (separated by space, comma, or tab)',
+#     description='Paste',
+#     layout=widgets.Layout(width='750px', height='80px')
+# )
 
 def on_paste_clicked(b):
     with output:
@@ -86,8 +86,8 @@ def on_paste_clicked(b):
         except Exception as e:
             print("❌ Invalid format or non-numeric content:", e)
 
-paste_button = widgets.Button(description="📥 Parse Paste", button_style='info')
-paste_button.on_click(on_paste_clicked)
+# paste_button = widgets.Button(description="📥 Parse Paste", button_style='info')
+# paste_button.on_click(on_paste_clicked)
 
 # ohlc_fields = ['Open', 'High', 'Low', 'Close']
 # input_boxes = [widgets.FloatText(description=f'{field}_{day}', layout=widgets.Layout(width='180px'))
