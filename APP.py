@@ -7,9 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/1n6QQKuG2MPsJ6NpZNkryygKRaBBcQC47
 """
 
-!pip install ipywidgets xgboost --quiet
+#!pip install ipywidgets xgboost --quiet
 
-!pip install gradio
+#!pip install gradio
 
 import joblib
 import numpy as np
