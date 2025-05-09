@@ -182,7 +182,7 @@ def predict_ohlc(pasted_text, delta=0.008, threshold=0.55):
         return f"❌ Error: {e}"
 
 # 创建 Gradio 网页界面
-gr.Interface(
+interface = gr.Interface(
     fn=predict_ohlc,
     inputs=[
         gr.Textbox(lines=4, label="Paste 32 OHLC values (Open, High, Low, Close × 8 days)"),
@@ -192,4 +192,8 @@ gr.Interface(
     outputs="text",
     title="EUR/USD Trading Entry Predictor",
     description="Paste OHLC data for the past 8 days (total 32 numbers). Adjust Δ and threshold if needed, then run prediction."
-).launch(server_name="0.0.0.0", server_port=8080)
+)
+
+import os
+port = int(os.environ.get("PORT", 8080))
+interface.launch(server_name="0.0.0.0", server_port=port)
