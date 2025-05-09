@@ -14,7 +14,7 @@ Original file is located at
 import joblib
 import numpy as np
 #import ipywidgets as widgets
-from IPython.display import display, clear_output
+#from IPython.display import display, clear_output
 import pandas as pd
 import gradio as gr
 
@@ -67,26 +67,26 @@ model = joblib.load('xgboost_best.pkl')
 #     layout=widgets.Layout(width='750px', height='80px')
 # )
 
-def on_paste_clicked(b):
-    with output:
-        clear_output()
-        try:
-            # Split pasted content by space/comma/tab
-            raw_values = paste_box.value.replace('\t', ' ').replace(',', ' ').split()
-            values = [float(v) for v in raw_values if v.strip() != '']
+# def on_paste_clicked(b):
+#     with output:
+#         clear_output()
+#         try:
+#             # Split pasted content by space/comma/tab
+#             raw_values = paste_box.value.replace('\t', ' ').replace(',', ' ').split()
+#             values = [float(v) for v in raw_values if v.strip() != '']
 
-            if len(values) != 32:
-                print("❌ Please paste exactly 32 numeric values!")
-                return
+#             if len(values) != 32:
+#                 print("❌ Please paste exactly 32 numeric values!")
+#                 return
 
-            for i, v in enumerate(values):
-                input_boxes[i].value = round(v, 5)
+#             for i, v in enumerate(values):
+#                 input_boxes[i].value = round(v, 5)
 
-            print("✅ Successfully filled 32 OHLC values!")
-        except Exception as e:
-            print("❌ Invalid format or non-numeric content:", e)
+#             print("✅ Successfully filled 32 OHLC values!")
+#         except Exception as e:
+#             print("❌ Invalid format or non-numeric content:", e)
 
-# paste_button = widgets.Button(description="📥 Parse Paste", button_style='info')
+## paste_button = widgets.Button(description="📥 Parse Paste", button_style='info')
 # paste_button.on_click(on_paste_clicked)
 
 # ohlc_fields = ['Open', 'High', 'Low', 'Close']
@@ -137,34 +137,34 @@ def on_paste_clicked(b):
 
 
 
-"""##You may try these data(1)
+# """##You may try these data(1)
 
-1.0837	1.0839	1.0787	1.084
-1.0795	1.0808	1.0784	1.0795
-1.081	1.0821	1.078	1.081
-1.0788	1.0864	1.0788	1.0788
-1.0839	1.0864	1.0808	1.0839
-1.0849	1.0882	1.0832	1.0849
-1.0881	1.0904	1.0856	1.0882
-1.0886	1.1006	1.0886	1.0886
+# 1.0837	1.0839	1.0787	1.084
+# 1.0795	1.0808	1.0784	1.0795
+# 1.081	1.0821	1.078	1.081
+# 1.0788	1.0864	1.0788	1.0788
+# 1.0839	1.0864	1.0808	1.0839
+# 1.0849	1.0882	1.0832	1.0849
+# 1.0881	1.0904	1.0856	1.0882
+# 1.0886	1.1006	1.0886	1.0886
 
-0 data:
-1.1117	1.1145	1.1114	1.1117
+# 0 data:
+# 1.1117	1.1145	1.1114	1.1117
 
-1.1134	1.1146	1.1106	1.1136
+# 1.1134	1.1146	1.1106	1.1136
 
-1.113	1.1163	1.112	1.1131
+# 1.113	1.1163	1.112	1.1131
 
-1.1153	1.1172	1.113	1.1154
+# 1.1153	1.1172	1.113	1.1154
 
-1.1138	1.1145	1.1088	1.114
+# 1.1138	1.1145	1.1088	1.114
 
-1.1095	1.1105	1.1078	1.1095
+# 1.1095	1.1105	1.1078	1.1095
 
-1.1096	1.112	1.1086	1.1097
+# 1.1096	1.112	1.1086	1.1097
 
-1.1086	1.1098	1.1072	1.1086
-"""
+# 1.1086	1.1098	1.1072	1.1086
+# """
 
 def predict_ohlc(pasted_text, delta=0.008, threshold=0.55):
     try:
