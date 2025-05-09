@@ -192,6 +192,4 @@ gr.Interface(
     outputs="text",
     title="EUR/USD Trading Entry Predictor",
     description="Paste OHLC data for the past 8 days (total 32 numbers). Adjust Δ and threshold if needed, then run prediction."
-).launch()
-
-app.launch(server_name="0.0.0.0", server_port=8080)
+).launch(server_name="0.0.0.0", server_port=8080)
