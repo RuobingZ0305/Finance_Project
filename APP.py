@@ -191,7 +191,23 @@ interface = gr.Interface(
     ],
     outputs="text",
     title="EUR/USD Trading Entry Predictor",
-    description="Paste OHLC data for the past 8 days (total 32 numbers). Adjust Δ and threshold if needed, then run prediction."
+    description="""
+ **Instructions**:
+Paste OHLC (Open, High, Low, Close) data for the past 8 days — total 32 values, separated by spaces.  
+Adjust Δ and threshold if needed, then click **Run** to get the prediction.
+
+ **Example - Entry Recommended**:  
+1.0837 1.0839 1.0787 1.084  1.0795 1.0808 1.0784 1.0795  
+1.081 1.0821 1.078 1.081  1.0788 1.0864 1.0788 1.0788  
+1.0839 1.0864 1.0808 1.0839  1.0849 1.0882 1.0832 1.0849  
+1.0881 1.0904 1.0856 1.0882  1.0886 1.1006 1.0886 1.0886
+
+ **Example - Entry Not Recommended**:  
+1.1117 1.1145 1.1114 1.1117  1.1134 1.1146 1.1106 1.1136  
+1.113 1.1163 1.112 1.1131  1.1153 1.1172 1.113 1.1154  
+1.1138 1.1145 1.1088 1.114  1.1095 1.1105 1.1078 1.1095  
+1.1096 1.112 1.1086 1.1097  1.1086 1.1098 1.1072 1.1086
+"""
 )
 
 import os
